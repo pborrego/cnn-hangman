@@ -1,0 +1,17 @@
+Dockerfile
+codeship_deploy-step-2.sh
+docs
+node_modules
+*.log
+.sass-cache
+dist
+*/**/results.xml
+*.txt
+.vscode
+*.iml
+jsLibraryMappings.xml
+misc.xml
+vcs.xml
+webResources.xml
+workspace.xml
+modules.xml
