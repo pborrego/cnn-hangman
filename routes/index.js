@@ -14,7 +14,6 @@ exports.word = {
                 alphabet: config['alphabet'],
                 blocks: new Array(gameWord.length),
                 guesses: [],
-                hits: 0,
                 maxAttempts: config['maxAttempts'],
                 miss: 0,
                 word: gameWord
