@@ -1,0 +1,25 @@
+FROM node:6.9.1
+MAINTAINER Paul Borrego <paul.borrego@turner.com>
+
+RUN useradd --user-group --create-home --shell /bin/false app
+
+ENV HOME=/home/app
+
+COPY package.json $HOME/cnn-hangman/
+RUN chown -R app:app $HOME/*
+
+USER app
+WORKDIR $HOME/cnn-hangman
+
+RUN npm install
+
+USER root
+COPY server.js $HOME/cnn-hangman/
+COPY routes/* $HOME/cnn-hangman/routes/
+COPY config.js $HOME/cnn-hangman/
+COPY init.js $HOME/cnn-hangman/
+
+RUN chown -R app:app $HOME/*
+USER app
+
+CMD [ "npm", "start" ]
