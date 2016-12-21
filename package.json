@@ -6,7 +6,7 @@
   "scripts": {
     "eslint": "eslint '**/*.js'",
     "start": "DEBUG=hangman* node server.js",
-    "start:fe:dev": "webpack-dev-server --hot --inline --content-base src",
+    "start:fe:dev": "webpack-dev-server --hot --inline --host 0.0.0.0 --content-base src",
     "test": "lab ./test/test.spec.js",
     "update-apply": "ncu -u",
     "update-check": "ncu"
