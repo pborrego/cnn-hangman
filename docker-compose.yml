@@ -1,0 +1,20 @@
+version: '2'
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile.ui
+    ports:
+      - '8080:8080'
+    volumes:
+      - .:/home/app/cnn-hangman
+      - /home/app/cnn-hangman/node_modules
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    ports:
+      - '3000:3000'
+    volumes:
+      - .:/home/app/cnn-hangman
+      - /home/app/cnn-hangman/node_modules
