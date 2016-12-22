@@ -1,4 +1,13 @@
 /* redux state property - representing the length of the current game word */
+export const alphabet = (state, action) => {
+    switch (action.type) {
+        case 'INITIAL_STATE':
+            return action.data.alphabet || state;
+        default:
+            return state || 0;
+    }
+};
+
 export const blocks = (state, action) => {
     switch (action.type) {
         case 'INITIAL_STATE':

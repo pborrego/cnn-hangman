@@ -4,7 +4,7 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 module.exports = config({
     filename: 'hangman.js',
     libraryName: 'Hangman',
-    entry: ['./src/js/index.js'],
+    entry: ['./client/js/index.js'],
     loaders: [{
         test: /\.scss|\.css$/,
         loader: ExtractTextPlugin.extract('style-loader', 'css-loader!sass-loader')},

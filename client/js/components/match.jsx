@@ -8,12 +8,15 @@ import {
     notifyMiss,
     showSubmitted,
     userLost} from '../actions';
+import {Alphabet} from './list/alphabet';
+import * as List from './list/blocks';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
 
 
-const mapStateToProps = ({blocks, guesses, hits, maxAttempts, message, miss, word}) => ({
+const mapStateToProps = ({alphabet, blocks, guesses, hits, maxAttempts, message, miss, word}) => ({
+    alphabet,
     blocks,
     guesses,
     hits,
@@ -26,13 +29,13 @@ const mapStateToProps = ({blocks, guesses, hits, maxAttempts, message, miss, wor
 const mapDispatchToProps = dispatch => ({
     addGuess: guess => dispatch(addGuess(guess)),
     clearMessage: () => dispatch(clearMessage()),
-    userLost: () => dispatch(userLost()),
-    userWon: () => dispatch(userWon()),
     incrementMiss: () => dispatch(incrementMiss()),
-    notifyInputInvalid: () => dispatch(notifyInputInvalid()),
     notifyHit: () => dispatch(notifyHit()),
+    notifyInputInvalid: () => dispatch(notifyInputInvalid()),
     notifyMiss: (attemptsLeft) => dispatch(notifyMiss(attemptsLeft)),
-    showSubmitted: (hitIndex, value) => dispatch(showSubmitted(hitIndex, value))
+    showSubmitted: (hitIndex, value) => dispatch(showSubmitted(hitIndex, value)),
+    userLost: () => dispatch(userLost()),
+    userWon: () => dispatch(userWon())
 });
 
 
@@ -59,8 +62,6 @@ class Match extends React.Component {
             return arr;
         }
 
-        console.log(arr.filter((value, i) => value === this.word()[i]));
-        console.log(arr);
         return arr.filter((value, i) => value === this.word()[i]);
     }
 
@@ -88,7 +89,7 @@ class Match extends React.Component {
 
     isGameOver() {
         let check = [this.hasUserLost(), this.hasUserWon()];
-
+        console.log(check);
         return (check.indexOf(true)) ? this.props.userLost() : this.props.userWon();
     }
 
@@ -112,16 +113,26 @@ class Match extends React.Component {
         this.clear();
         this.increment(submitted);
         this.props.addGuess(submitted);
+        this.isGameOver();
     }
 
     render() {
         return (
-            <div className='game'>
-            <input maxLength='1' type='text' placeholder="Enter a Letter" ref='play' />
+            <div className="flex">
+                <form>
+                    <input autofocus maxLength='1' type='text' placeholder="Enter a Letter" ref='play' />
+                </form>
+                <List.blocks blocks={this.props.blocks} />
+                <div className="alphabet">
+                    <Alphabet alphabet={this.props.alphabet}/>
+                </div>
+            </div>
+            /* <div className='game'>
+
             <button type='submit' className='button' onClick={this.play}>
                 {'Submit'}
             </button>
-            </div>
+            </div> */
         );
     }
 

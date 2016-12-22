@@ -14,8 +14,11 @@ import * as reducers from './reducers';
 
 let store;
 
+
+
 /* establish a new websocket connection with the server */
 const client = new NES.Client('ws://localhost:3000');
+
 
 
 function renderInit() {
@@ -25,7 +28,6 @@ function renderInit() {
     <Provider store={store}>
         <Hangman.app>
             <Match />
-            <List.blocks props={this.props} blocks={state.blocks} />
         </Hangman.app>
     </Provider>
   ), document.getElementById('inject'));

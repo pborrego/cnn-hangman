@@ -1,0 +1,120 @@
+@import '~milligram';
+
+
+
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
+html {font-size: 16px;}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    background: #f0f0f0;
+    color: rgba(0,0,0,.87);
+    font-size: .875rem;
+    height: auto;
+    min-height: 100%;
+    min-width: $min-width;
+    position: relative;
+    text-rendering: optimizelegibility;
+}
+
+.#{$pkg}__app--header {
+    background-color: $white;
+    box-shadow: 0 2px 5px rgba(0,0,0,.26),0 -1px 0 rgba(0,0,0,.02);
+    left: 0;
+    min-height: 4rem;
+    padding: 0 1rem;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+
+    h1 {
+        color: $red;
+        font-size: 1.25rem;
+        letter-spacing: 0;
+        line-height: 4rem;
+        margin-bottom: 0;
+    }
+}
+
+.box {
+    background: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,.1),0 -1px 0 rgba(0,0,0,.02);
+    padding: 0.25rem;
+}
+
+.wrapper {
+    max-width: $max-width;
+    padding-top: 4rem;
+    transition: max-width 0.5s ease;
+
+    .flex {
+        display: flex;
+        flex-flow: column;
+        min-height: calc(100vh - 5rem);
+    }
+
+    form {
+        flex: 1;
+    }
+
+    .alphabet {
+        display: inline-block;
+        margin: 0 auto;
+    }
+
+    .alphabet-list {
+        ul {
+            overflow: hidden;
+            margin-bottom: 0;
+
+            li {
+                display: inline-flex;
+                font-weight: 300;
+                font-size: 2rem;
+                letter-spacing: 0;
+                line-height: 1.5;
+                list-style: none;
+                margin-bottom: 0;
+                margin-left: 1.25rem;
+                text-shadow: 0.09rem 0 0 rgba(0,0,0,0.25);
+
+                &:first-child {
+                    margin-left: 0;
+                }
+            }
+        }
+    }
+
+    .word-list__blocks {
+        flex: 2;
+
+        ul {
+            -webkit-padding-start: 0;
+            overflow: hidden;
+            li {
+                border-bottom: 3px solid black;
+                list-style-type: none;
+                float: left;
+                margin-left: 1em;
+                &:first-child {
+                    margin-left: 0;
+                }
+            }
+            span {
+                display: block;
+                height: 32px;
+                line-height: 2;
+                text-align: center;
+                width: 32px;
+            }
+        }
+    }
+}
