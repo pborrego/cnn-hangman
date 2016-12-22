@@ -1,0 +1,22 @@
+FROM node:6.9.1
+MAINTAINER Paul Borrego <paul.borrego@turner.com>
+
+RUN useradd --user-group --create-home --shell /bin/false app
+
+ENV HOME=/home/app
+
+COPY package.json $HOME/cnn-hangman/
+RUN chown -R app:app $HOME/*
+
+USER app
+WORKDIR $HOME/cnn-hangman
+
+RUN npm install
+
+USER root
+COPY . $HOME/cnn-hangman/
+
+RUN chown -R app:app $HOME/*
+USER app
+
+CMD [ "npm", "run", "start:fe:dev" ]
