@@ -116,32 +116,34 @@ class Match extends React.Component {
         this.isGameOver();
     }
 
-    render() {
-        return (
-            <div className="flex">
-                <form>
-                    <input autofocus maxLength='1' type='text' placeholder="Enter a Letter" ref='play' />
-                </form>
-                <List.blocks blocks={this.props.blocks} />
-                <div className="alphabet">
-                    <Alphabet alphabet={this.props.alphabet}/>
-                </div>
-            </div>
-            /* <div className='game'>
-
-            <button type='submit' className='button' onClick={this.play}>
-                {'Submit'}
-            </button>
-            </div> */
-        );
-    }
-
     word() {
         return this.props.word.split('');
     }
 
     validate(str) {
         return /[a-zA-Z]/.test(str);
+    }
+
+    render() {
+        return (
+            <div className="flex">
+                <div className="canvas"></div>
+                <List.blocks blocks={this.props.blocks} />
+                <div className="alphabet">
+                    <Alphabet alphabet={this.props.alphabet}/>
+                </div>
+            </div>
+            /*
+            <form>
+                    <input autoFocus maxLength='1' type='text' placeholder="Enter a Letter" ref='play' />
+                </form>
+            <div className='game'>
+
+            <button type='submit' className='button' onClick={this.play}>
+                {'Submit'}
+            </button>
+            </div> */
+        );
     }
 }
 

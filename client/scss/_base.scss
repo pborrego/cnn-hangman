@@ -61,7 +61,7 @@ body {
         min-height: calc(100vh - 5rem);
     }
 
-    form {
+    .canvas {
         flex: 1;
     }
 
@@ -94,16 +94,17 @@ body {
     }
 
     .word-list__blocks {
-        flex: 2;
+        margin: 0 auto;
 
         ul {
             -webkit-padding-start: 0;
             overflow: hidden;
+
             li {
-                border-bottom: 3px solid black;
+                display: inline-block;
                 list-style-type: none;
-                float: left;
                 margin-left: 1em;
+
                 &:first-child {
                     margin-left: 0;
                 }

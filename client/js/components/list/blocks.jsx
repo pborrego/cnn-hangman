@@ -7,7 +7,7 @@ export const blocks = (props) => {
         <div className='word-list__blocks'>
             <ul>
                 {props.blocks.map((item, i) =>
-                    <li key={i} className='word-list__blocks--item'>
+                    <li key={i} className='box word-list__blocks--item'>
                         <span>{item === null ? '\u00A0' : item}</span>
                     </li>
                 )}
