@@ -1,11 +1,11 @@
 {
   "name": "cnn-hapi-hangman",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "CNN Hangman",
   "main": "./api/server.js",
   "scripts": {
     "eslint": "eslint '**/*.js'",
-    "start": "DEBUG=hangman* node api/server.js",
+    "start": "DEBUG=hangman* node ./api/server.js",
     "start:fe:dev": "webpack-dev-server --hot --inline --host 0.0.0.0 --content-base client",
     "test": "lab ./test/test.spec.js",
     "update-apply": "ncu -u",
