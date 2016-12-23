@@ -8,8 +8,7 @@ import {Provider} from 'react-redux';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import * as Hangman from './components';
-import * as List from './components/list/blocks';
+import App from './components';
 import * as reducers from './reducers';
 
 let store;
@@ -26,9 +25,9 @@ function renderInit() {
 
   ReactDOM.render((
     <Provider store={store}>
-        <Hangman.app>
+        <App>
             <Match />
-        </Hangman.app>
+        </App>
     </Provider>
   ), document.getElementById('inject'));
 }

@@ -8,8 +8,8 @@ import {
     notifyMiss,
     showSubmitted,
     userLost} from '../actions';
-import {Alphabet} from './list/alphabet';
-import * as List from './list/blocks';
+import Alphabet from './list/alphabet';
+import Blocks from './list/blocks';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
@@ -128,7 +128,7 @@ class Match extends React.Component {
         return (
             <div className="flex">
                 <div className="canvas"></div>
-                <List.blocks blocks={this.props.blocks} />
+                <Blocks blocks={this.props.blocks} />
                 <div className="alphabet">
                     <Alphabet alphabet={this.props.alphabet}/>
                 </div>

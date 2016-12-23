@@ -1,13 +1,13 @@
-import * as Header from './header';
+import Header from './header';
 import React from 'react';
 
-export const app = (props) => {
+export default function App(props) {
     return (
         <div>
-            <Header.main />
+            <Header />
             <div className='container wrapper'>
                 {props.children}
             </div>
         </div>
-      );
+    );
 };
